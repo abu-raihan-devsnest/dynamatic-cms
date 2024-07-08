@@ -1,10 +1,14 @@
 import { Box } from "@chakra-ui/react";
+import BodyBG from "./BodyBG";
+import HeaderTitle from "./HeaderTitle";
 
 const CreateCategory = () => {
   return (
-    <Box>
-      <Box></Box>
-    </Box>
+    <BodyBG>
+      <Box>
+        <HeaderTitle titleText="Create Category" />
+      </Box>
+    </BodyBG>
   );
 };
 
