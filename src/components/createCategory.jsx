@@ -31,7 +31,6 @@ const CreateCategory = () => {
     setTags([]);
   };
 
-  console.log(categoryList);
   const onDragEnd = (result) => {
     if (!result.destination) return;
     const reorderedList = Array.from(categoryList);

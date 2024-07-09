@@ -3,13 +3,15 @@ import "./App.css";
 import HeroSection from "./components/HeroSection";
 import CreateWidget from "./components/CreateWidget";
 import CreateCategory from "./components/CreateCategory";
+import BannerSection from "./components/BannerSection";
 function App() {
   return (
     <>
       <Box>
         <CreateCategory />
-        <CreateWidget/>
-        <HeroSection/>
+        <CreateWidget></CreateWidget>
+        <HeroSection></HeroSection>
+        <BannerSection />
       </Box>
     </>
   );
