@@ -203,10 +203,10 @@ const CreateWidget = () => {
                 resize="none"
               />
               <Box display="flex" alignItems="center" mt="8px">
-                <FormLabel htmlFor="badge" fontSize="13px" fontWeight="550">
+                <FormLabel fontSize="13px" fontWeight="550">
                   Show/hide badge
                 </FormLabel>
-                <Switch id="badge" color="#00B2FF" size="sm" />
+                <Switch mt="-4px" color="#00B2FF" size="sm" />
               </Box>
               <HStack gap="12px" mt="4px">
                 <Box
@@ -325,7 +325,7 @@ const CreateWidget = () => {
                 </Button>
                 <Button
                   _hover={{ bg: "#C4E8FE" }}
-                  _focus={{bg: "#B4E08E"}}
+                  _focus={{bg: "#D0DEFF"}}
                   borderRadius="8px"
                   p="8px"
                   w="100%"
@@ -340,6 +340,8 @@ const CreateWidget = () => {
             </FormControl>
           </Box>
           <Button
+            _hover={{ bg: "#0084EF" }}
+            _focus={{bg: "#0086FF"}}
             mt="10px"
             bgColor="#00B2FF"
             w="100%"

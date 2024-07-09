@@ -9,8 +9,13 @@ import {
 } from "@chakra-ui/react";
 import BodyBG from "./BodyBG";
 import HeaderTitle from "./HeaderTitle";
+import { useState } from "react";
 
 const HeroSection = () => {
+  const [heroTitle, setHeroTitle] = useState("");
+  const [heroSubTitle, setHeroSubTitle] = useState("");
+  const [ctaText, setCtaText] = useState("");
+
   return (
     <BodyBG>
       <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
@@ -28,6 +33,9 @@ const HeroSection = () => {
                 Title
               </FormLabel>
               <Input
+                name="heroTitle"
+                value={heroTitle}
+                onChange={(e) => setHeroTitle(e.target.value)}
                 id="title"
                 bgColor="#F8F8F8"
                 border="1px"
@@ -48,6 +56,9 @@ const HeroSection = () => {
                 Subtitle
               </FormLabel>
               <Textarea
+                name="heroSubTitle"
+                value={heroSubTitle}
+                onChange={(e) => setHeroSubTitle(e.target.value)}
                 id="subTitle"
                 h="80px"
                 bgColor="#F8F8F8"
@@ -68,7 +79,10 @@ const HeroSection = () => {
               >
                 CTA text
               </FormLabel>
-              <Input
+                          <Input
+                              name="ctaText"
+                              value={ctaText}
+                              onChange={(e) => setCtaText(e.target.value)}
                 id="cta"
                 bgColor="#F8F8F8"
                 border="1px"
@@ -93,9 +107,9 @@ const HeroSection = () => {
                 >
                   Reset
                 </Button>
-                              <Button
-                                  _hover={{ bg: "#06a2e4" }}
-                                  _focus={{ bg: "#069ad9" }}
+                <Button
+                  _hover={{ bg: "#06a2e4" }}
+                  _focus={{ bg: "#069ad9" }}
                   borderRadius="8px"
                   p="8px"
                   w="100%"
@@ -115,5 +129,4 @@ const HeroSection = () => {
     </BodyBG>
   );
 };
-
 export default HeroSection;
