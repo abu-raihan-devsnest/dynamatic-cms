@@ -8,8 +8,8 @@ function App() {
     <>
       <Box>
         <CreateCategory />
-        <CreateWidget></CreateWidget>
-        <HeroSection></HeroSection>
+        <CreateWidget/>
+        <HeroSection/>
       </Box>
     </>
   );

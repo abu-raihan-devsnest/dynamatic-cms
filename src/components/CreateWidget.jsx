@@ -7,19 +7,151 @@ import {
   Grid,
   Select,
   Switch,
+  Img
 } from "@chakra-ui/react";
 import HeaderTitle from "./HeaderTitle";
 import { FormControl, FormLabel } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
 import BodyBG from "./BodyBG";
 import InputFile from "./InputFile";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { useState } from "react";
+import dndIcon from "../assets/icons/DndIcon.svg";
+import editIcon from "../assets/icons/editIcon.svg";
+import deleteIcon from "../assets/icons/deleteIcon.svg";
+
+
+
 
 const CreateWidget = () => {
+  // const [tags, setTags] = useState([]);
+  const [widgetList, setWidgetList] = useState([]);
+  const [widgetTitle, setWidgetTitle] = useState("");
+  const [widgetDetails, setWidgetDetails] = useState("");
+  const [widgetDescription, setWidgetDescription] = useState("");
+  const [badgeText, setBadgeText] = useState("");
+
+  const handleCreateWidget = (e) => {
+    e.preventDefault();
+    const generateId = () => `_${Math.random().toString(36).substr(2, 9)}`;
+
+    const fullWidget = {
+      widgetTitle,
+      widgetDescription,
+      badgeText,
+      widgetDetails,
+      id: generateId(),
+    };
+    setWidgetList([...widgetList, fullWidget]);
+    setWidgetTitle("");
+  };
+
+  const onDragEnd = (result) => {
+    if (!result.destination) return;
+    const reorderedList = Array.from(widgetList);
+    const [movedItem] = reorderedList.splice(result.source.index, 1);
+    reorderedList.splice(result.destination.index, 0, movedItem);
+    setWidgetList(reorderedList);
+  };
+
+
   return (
     <BodyBG>
       <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
         <Box width={{ base: "100%", md: "700px" }}>
           <HeaderTitle titleText="Create widget" />
+          <DragDropContext onDragEnd={onDragEnd}>
+            <Droppable droppableId="droppable-boxes">
+              {(provided) => (
+                <Box {...provided.droppableProps} ref={provided.innerRef}>
+                  {widgetList.map((singleFullCategory, idx) => (
+                    <Draggable
+                      key={singleFullCategory.id}
+                      draggableId={singleFullCategory.id}
+                      index={idx}
+                    >
+                      {(provided) => (
+                        <Box
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          display={"flex"}
+                          justifyContent={"space-between"}
+                          alignItems={"center"}
+                          bg={"#FFFFFF"}
+                          boxShadow={
+                            "0px 1px 0px 0px #CCCCCC80 inset,0px -1px 0px 0px #0000002B inset,-1px 0px 0px 0px #00000021 inset,1px 0px 0px 0px #00000021 inset,0px 1px 0px 0px #1A1A1A12"
+                          }
+                          borderRadius={"12px"}
+                          padding={"16px"}
+                          mb="14px"
+                          cursor={"grab"}
+                        >
+                          <Box
+                            display={"flex"}
+                            justifyContent={"space-between"}
+                            alignItems={"center"}
+                            gap={"8px"}
+                          >
+                            <Img
+                              src={dndIcon}
+                            />
+                            <Box>
+                              <Text
+                                fontFamily={'"Inter", sans-serif'}
+                                fontWeight={"600"}
+                                fontSize={"13px"}
+                                lineHeight={"18.2px"}
+                                color={"#00070B"}
+                              >
+                                {singleFullCategory.categoryTitle}
+                              </Text>
+                              <Text
+                                fontWeight={"400"}
+                                fontSize={"12px"}
+                                lineHeight={"18px"}
+                                color={"#B1B1B1"}
+                              >
+                                {`${singleFullCategory.tags.length} categories`}
+                              </Text>
+                            </Box>
+                          </Box>
+                          <Box
+                            display={"flex"}
+                            justifyContent={"space-between"}
+                            alignItems={"center"}
+                            gap={"12px"}
+                          >
+                            <Img
+                              src={editIcon}
+                              bg={"#FFE8ED"}
+                              borderRadius={"4px"}
+                              padding={"5px"}
+                              height={"30px"}
+                              width={"30px"}
+                              _hover={{ bg: "#f8d6dd" }}
+                              cursor={"pointer"}
+                            />
+                            <Img
+                              src={deleteIcon}
+                              bg={"#D0EEFF"}
+                              borderRadius={"4px"}
+                              padding={"5px"}
+                              height={"30px"}
+                              width={"30px"}
+                              _hover={{ bg: "#c1e6fc" }}
+                              cursor={"pointer"}
+                            />
+                          </Box>
+                        </Box>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </Box>
+              )}
+            </Droppable>
+          </DragDropContext>
           <Box
             mt="10px"
             borderRadius="12px"
@@ -41,6 +173,9 @@ const CreateWidget = () => {
                 Widget title
               </FormLabel>
               <Input
+                name="widgetTitle"
+                value={widgetTitle}
+                onChange={(e) => setWidgetTitle(e.target.value)}
                 bgColor="#F8F8F8"
                 border="1px"
                 borderColor="#EEEEEE"
@@ -57,6 +192,9 @@ const CreateWidget = () => {
               </FormLabel>
               <Textarea
                 // w="668px"
+                name="widgetDescription"
+                value={widgetDescription}
+                onChange={(e) => setWidgetDescription(e.target.value)}
                 h="80px"
                 bgColor="#F8F8F8"
                 border="1px"
@@ -104,6 +242,9 @@ const CreateWidget = () => {
                 Badge text
               </FormLabel>
               <Input
+                name="badgeText"
+                value={badgeText}
+                onChange={(e) => setBadgeText(e.target.value)}
                 bgColor="#F8F8F8"
                 border="1px"
                 borderRadius="8px"
@@ -116,7 +257,6 @@ const CreateWidget = () => {
                 variant="unstyled"
                 placeholder="write here"
               />
-
               <FormLabel mt="4px" fontSize="13px" fontWeight="550">
                 Select pages
               </FormLabel>
@@ -156,6 +296,9 @@ const CreateWidget = () => {
               </FormLabel>
               <Textarea
                 // w="668px"
+                name="widgetDetails"
+                value={widgetDetails}
+                onChange={(e) => setWidgetDetails(e.target.value)}
                 h="80px"
                 bgColor="#F8F8F8"
                 border="1px"
@@ -176,6 +319,9 @@ const CreateWidget = () => {
                   h="40px"
                   bgColor="#EBEBEB"
                   color="#374144"
+                  onClick={() => {
+                    setWidgetTitle("");
+                  }}
                 >
                   Reset
                 </Button>
@@ -186,6 +332,7 @@ const CreateWidget = () => {
                   h="40px"
                   bgColor="#D0EEFF"
                   color="#00507C"
+                  onClick={handleCreateWidget}
                 >
                   Save widget
                 </Button>

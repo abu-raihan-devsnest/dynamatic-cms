@@ -40,7 +40,7 @@ const InputFile = ({ uploadingText }) => {
           height="100%"
           cursor="pointer"
         >
-          <Image src="Icons.svg" boxSize={8} mb={2} color="#00aaff" />
+          <Image src="src\assets\icons\Icons.svg" boxSize={8} mb={2} color="#00aaff" />
           <Text fontSize="13px" fontWeight="550" mb={1}>
             {uploadingText}
           </Text>
