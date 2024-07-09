@@ -14,13 +14,14 @@ const CreateCategory = () => {
   const [tags, setTags] = useState([]);
   const [categoryTitle, setCategoryTitle] = useState("");
   const [categoryList, setCategoryList] = useState([]);
+  const [selectType, setSelectType] = useState("");
 
   const handleCreateCategory = (e) => {
     e.preventDefault();
     const generateId = () => `_${Math.random().toString(36).substr(2, 9)}`;
 
     const fullCategory = {
-      selectCategoryType: "select",
+      selectType,
       categoryTitle,
       tags,
       id: generateId(),
@@ -30,6 +31,7 @@ const CreateCategory = () => {
     setTags([]);
   };
 
+  console.log(categoryList);
   const onDragEnd = (result) => {
     if (!result.destination) return;
     const reorderedList = Array.from(categoryList);
@@ -162,10 +164,15 @@ const CreateCategory = () => {
                   borderRadius={"8px"}
                   border={"1px solid #EBEBEB"}
                   _hover={{ border: "border 1px solid default" }}
-                  placeholder="Checkbox"
+                  onChange={(e) => setSelectType(e.target.value)}
+                  // placeholder="Select Type"
                 >
-                  <option value="option1">Radio button</option>
-                  <option value="option2">None</option>
+                  <option selected disabled value="Select Type">
+                    Select type
+                  </option>
+                  <option value="Checkbox">Checkbox</option>
+                  <option value="Radio button">Radio button</option>
+                  <option value="None">None</option>
                 </Select>
               </Box>
 

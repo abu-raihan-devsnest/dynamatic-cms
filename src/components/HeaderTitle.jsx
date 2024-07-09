@@ -10,7 +10,16 @@ const HeaderTitle = ({ titleText }) => {
       mb={"7px"}
       mt={"12px"}
     >
-      <Img src={leftArrow} />
+      <Img
+        bg={"#e5e5e5"}
+        _hover={{ bg: "#d7d4d4" }}
+        padding={"8px"}
+        rounded={"full"}
+        cursor={"pointer"}
+        height={"30px"}
+        width={"30px"}
+        src={leftArrow}
+      />
       <Text color={"#000000"} fontWeight={"600"} fontSize={"18px"}>
         {titleText}
       </Text>
