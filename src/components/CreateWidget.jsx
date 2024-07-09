@@ -8,9 +8,10 @@ import {
   Select,
   Switch,
   Img,
+  FormControl,
 } from "@chakra-ui/react";
 import HeaderTitle from "./HeaderTitle";
-import { FormControl, FormLabel } from "@chakra-ui/react";
+import { FormLabel } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
 import BodyBG from "./BodyBG";
 import InputFile from "./InputFile";
@@ -27,12 +28,14 @@ const CreateWidget = () => {
   const [widgetDetails, setWidgetDetails] = useState("");
   const [widgetDescription, setWidgetDescription] = useState("");
   const [badgeText, setBadgeText] = useState("");
+  const [selectType, setSelectType] = useState("");
 
   const handleCreateWidget = (e) => {
     e.preventDefault();
     const generateId = () => `_${Math.random().toString(36).substr(2, 9)}`;
 
     const fullWidget = {
+      selectType,
       widgetTitle,
       widgetDescription,
       badgeText,
@@ -151,7 +154,6 @@ const CreateWidget = () => {
             borderRadius="12px"
             p="16px"
             boxShadow="base"
-            // w="700px"
             bgColor="#FFFFFF"
           ></Box>
           <Box
@@ -159,7 +161,6 @@ const CreateWidget = () => {
             mt="10px"
             borderRadius="12px"
             p="16px"
-            // w="700px"
             boxShadow="base"
           >
             <FormControl>
@@ -182,7 +183,7 @@ const CreateWidget = () => {
                 placeholder="write here"
                 padding={"8px "}
               />
-              <FormLabel mt="4px" fontSize="13px" fontWeight="550">
+              <FormLabel mt="8px" fontSize="13px" fontWeight="550">
                 Widget description
               </FormLabel>
               <Textarea
@@ -201,7 +202,7 @@ const CreateWidget = () => {
                 placeholder="write here"
                 resize="none"
               />
-              <Box display="flex" alignItems="center" mt="4px">
+              <Box display="flex" alignItems="center" mt="8px">
                 <FormLabel htmlFor="badge" fontSize="13px" fontWeight="550">
                   Show/hide badge
                 </FormLabel>
@@ -233,7 +234,7 @@ const CreateWidget = () => {
                   </Button>
                 </Grid>
               </HStack>
-              <FormLabel mt="4px" fontSize="13px" fontWeight="550">
+              <FormLabel mt="8px" fontSize="13px" fontWeight="550">
                 Badge text
               </FormLabel>
               <Input
@@ -252,17 +253,18 @@ const CreateWidget = () => {
                 variant="unstyled"
                 placeholder="write here"
               />
-              <FormLabel mt="4px" fontSize="13px" fontWeight="550">
+              <FormLabel mt="8px" fontSize="13px" fontWeight="550">
                 Select pages
               </FormLabel>
               <Select
                 bgColor="#F8F8F8"
                 border="1px"
                 borderColor="#EEEEEE"
-                // w="668px"
+                w="668px"
                 h="36px"
-                // py="12px"
-                variant="unstyled"
+                _focusVisible={{
+                  outline: "none",
+                }}
                 placeholder="Select one"
                 // p={'8px 12px'}
               >
@@ -270,24 +272,24 @@ const CreateWidget = () => {
                 <option value="option2">Option 2</option>
                 <option value="option3">Option 3</option>
               </Select>
-              <FormLabel mt="4px" fontSize="13px" fontWeight="550">
+              <FormLabel mt="8px" fontSize="13px" fontWeight="550">
                 Select categories
               </FormLabel>
               <Select
                 bgColor="#F8F8F8"
                 border="1px"
                 borderColor="#EEEEEE"
-                // w="668px"
                 h="36px"
-                // py="12px"
-                variant="unstyled"
+                _focusVisible={{
+                  outline: "none",
+                }}
                 placeholder="Select one"
               >
                 <option value="option1">Option 1</option>
                 <option value="option2">Option 2</option>
                 <option value="option3">Option 3</option>
               </Select>
-              <FormLabel mt="4px" fontSize="13px" fontWeight="550">
+              <FormLabel mt="8px" fontSize="13px" fontWeight="550">
                 Widget details
               </FormLabel>
               <Textarea

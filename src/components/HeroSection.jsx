@@ -21,7 +21,6 @@ const HeroSection = () => {
             mt="10px"
             borderRadius="12px"
             p="16px"
-            // w="700px"
             boxShadow="base"
           >
             <FormControl>
@@ -33,7 +32,6 @@ const HeroSection = () => {
                 bgColor="#F8F8F8"
                 border="1px"
                 borderColor="#EEEEEE"
-                // w="668px"
                 h="36px"
                 py="12px"
                 px="8px"
@@ -42,7 +40,7 @@ const HeroSection = () => {
                 placeholder="Write here"
               />
               <FormLabel
-                mt="4px"
+                mt="10px"
                 fontSize="13px"
                 fontWeight="550"
                 htmlFor="subTitle"
@@ -51,7 +49,6 @@ const HeroSection = () => {
               </FormLabel>
               <Textarea
                 id="subTitle"
-                // w="668px"
                 h="80px"
                 bgColor="#F8F8F8"
                 border="1px"
@@ -63,9 +60,8 @@ const HeroSection = () => {
                 placeholder="Write here"
                 resize="none"
               />
-
               <FormLabel
-                mt="4px"
+                mt="10px"
                 fontSize="13px"
                 fontWeight="550"
                 htmlFor="cta"
@@ -77,7 +73,6 @@ const HeroSection = () => {
                 bgColor="#F8F8F8"
                 border="1px"
                 borderColor="#EEEEEE"
-                // w="668px"
                 h="36px"
                 py="12px"
                 px="8px"
@@ -85,7 +80,7 @@ const HeroSection = () => {
                 variant="unstyled"
                 placeholder="Write here"
               />
-              <HStack mt="8px" spacing="12px" justify="space-between">
+              <HStack mt="10px" spacing="12px" justify="space-between">
                 <Button
                   borderRadius="8px"
                   p="8px"
