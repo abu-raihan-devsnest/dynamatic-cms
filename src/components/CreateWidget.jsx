@@ -331,11 +331,7 @@ const CreateWidget = () => {
                 </Button>
                 <Button
                   _hover={{ bg: "#C4E8FE" }}
-<<<<<<< HEAD
                   _focus={{bg: "#D0DEFF"}}
-=======
-                  _focus={{ bg: "#B4E08E" }}
->>>>>>> bc94e899504e0b13d0bd747d06e4771bcf820e5f
                   borderRadius="8px"
                   p="8px"
                   w="100%"
