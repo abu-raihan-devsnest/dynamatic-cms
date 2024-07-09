@@ -167,7 +167,7 @@ const CreateWidget = () => {
                 placeholder="write here"
                 resize="none"
               />
-              <InputFile></InputFile>
+              <InputFile uploadingText="Upload asset"></InputFile>
               <HStack mt="8px" spacing="12px" justify="space-between">
                 <Button
                   borderRadius="8px"
