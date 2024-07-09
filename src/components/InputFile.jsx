@@ -1,8 +1,8 @@
 import { Box, Input, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { Image } from "@chakra-ui/react";
-
-const InputFile = () => {
+import uploadIcon from "../assets/icons/Icons.svg";
+const InputFile = ({ uploadingText }) => {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {
@@ -38,10 +38,11 @@ const InputFile = () => {
           alignItems="center"
           justifyContent="center"
           height="100%"
+          cursor="pointer"
         >
-          <Image src="\public\Icons.svg" boxSize={8} mb={2} color="#00aaff" />
+          <Image src={uploadIcon} boxSize={8} mb={2} color="#00aaff" />
           <Text fontSize="13px" fontWeight="550" mb={1}>
-            Upload asset
+            {uploadingText}
           </Text>
           <Text color="#374144" fontSize="12px" fontWeight="400">
             Asset Less than 1 MB. Width 300px, height 250px

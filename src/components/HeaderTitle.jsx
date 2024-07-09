@@ -11,8 +11,8 @@ const HeaderTitle = ({ titleText }) => {
       mt={"12px"}
     >
       <Img
-        bg={"#e5e5e5"}
-        _hover={{ bg: "#d7d4d4" }}
+        // bg={"#e5e5e5"}
+        _hover={{ bg: "#e5e5e5" }}
         padding={"8px"}
         rounded={"full"}
         cursor={"pointer"}
