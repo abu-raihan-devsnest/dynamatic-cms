@@ -7,7 +7,7 @@ import {
   Grid,
   Select,
   Switch,
-  Img
+  Img,
 } from "@chakra-ui/react";
 import HeaderTitle from "./HeaderTitle";
 import { FormControl, FormLabel } from "@chakra-ui/react";
@@ -19,9 +19,6 @@ import { useState } from "react";
 import dndIcon from "../assets/icons/DndIcon.svg";
 import editIcon from "../assets/icons/editIcon.svg";
 import deleteIcon from "../assets/icons/deleteIcon.svg";
-
-
-
 
 const CreateWidget = () => {
   // const [tags, setTags] = useState([]);
@@ -53,7 +50,6 @@ const CreateWidget = () => {
     reorderedList.splice(result.destination.index, 0, movedItem);
     setWidgetList(reorderedList);
   };
-
 
   return (
     <BodyBG>
@@ -93,9 +89,7 @@ const CreateWidget = () => {
                             alignItems={"center"}
                             gap={"8px"}
                           >
-                            <Img
-                              src={dndIcon}
-                            />
+                            <Img src={dndIcon} />
                             <Box>
                               <Text
                                 fontFamily={'"Inter", sans-serif'}
@@ -186,6 +180,7 @@ const CreateWidget = () => {
                 type="text"
                 variant="unstyled"
                 placeholder="write here"
+                padding={"8px "}
               />
               <FormLabel mt="4px" fontSize="13px" fontWeight="550">
                 Widget description
@@ -269,6 +264,7 @@ const CreateWidget = () => {
                 // py="12px"
                 variant="unstyled"
                 placeholder="Select one"
+                // p={'8px 12px'}
               >
                 <option value="option1">Option 1</option>
                 <option value="option2">Option 2</option>
