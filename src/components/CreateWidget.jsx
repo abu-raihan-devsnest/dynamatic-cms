@@ -20,6 +20,7 @@ import { useState } from "react";
 import dndIcon from "../assets/icons/DndIcon.svg";
 import editIcon from "../assets/icons/editIcon.svg";
 import deleteIcon from "../assets/icons/deleteIcon.svg";
+import recomandationImg from "../assets/images/recomandationImage.png";
 
 const CreateWidget = () => {
   // const [tags, setTags] = useState([]);
@@ -46,6 +47,8 @@ const CreateWidget = () => {
     setWidgetTitle("");
   };
 
+  console.log(widgetList);
+
   const onDragEnd = (result) => {
     if (!result.destination) return;
     const reorderedList = Array.from(widgetList);
@@ -63,10 +66,10 @@ const CreateWidget = () => {
             <Droppable droppableId="droppable-boxes">
               {(provided) => (
                 <Box {...provided.droppableProps} ref={provided.innerRef}>
-                  {widgetList.map((singleFullCategory, idx) => (
+                  {widgetList?.map((widget, idx) => (
                     <Draggable
-                      key={singleFullCategory.id}
-                      draggableId={singleFullCategory.id}
+                      key={widget.id}
+                      draggableId={widget.id}
                       index={idx}
                     >
                       {(provided) => (
@@ -93,24 +96,33 @@ const CreateWidget = () => {
                             gap={"8px"}
                           >
                             <Img src={dndIcon} />
-                            <Box>
-                              <Text
-                                fontFamily={'"Inter", sans-serif'}
-                                fontWeight={"600"}
-                                fontSize={"13px"}
-                                lineHeight={"18.2px"}
-                                color={"#00070B"}
-                              >
-                                {singleFullCategory.categoryTitle}
-                              </Text>
-                              <Text
-                                fontWeight={"400"}
-                                fontSize={"12px"}
-                                lineHeight={"18px"}
-                                color={"#B1B1B1"}
-                              >
-                                {`${singleFullCategory.tags.length} categories`}
-                              </Text>
+                            <Box display={'flex'} gap={'6px'} alignItems={'center'}>
+                              <Img
+                                src={recomandationImg}
+                                width={"40px"}
+                                height={"40px"}
+                                borderRadius={"8px"}
+                                border={"1px solid #EBEBEB"}
+                              />
+                              <Box>
+                                <Text
+                                  fontFamily={'"Inter", sans-serif'}
+                                  fontWeight={"600"}
+                                  fontSize={"13px"}
+                                  lineHeight={"18.2px"}
+                                  color={"#00070B"}
+                                >
+                                  {widget.widgetTitle}
+                                </Text>
+                                <Text
+                                  fontWeight={"400"}
+                                  fontSize={"12px"}
+                                  lineHeight={"18px"}
+                                  color={"#B1B1B1"}
+                                >
+                                  {`${widgetDescription}`}
+                                </Text>
+                              </Box>
                             </Box>
                           </Box>
                           <Box
@@ -149,13 +161,7 @@ const CreateWidget = () => {
               )}
             </Droppable>
           </DragDropContext>
-          <Box
-            mt="10px"
-            borderRadius="12px"
-            p="16px"
-            boxShadow="base"
-            bgColor="#FFFFFF"
-          ></Box>
+
           <Box
             bgColor="#FFFFFF"
             mt="10px"
@@ -264,7 +270,7 @@ const CreateWidget = () => {
                 h="36px"
                 _focusVisible={{
                   outline: "none",
-                }} 
+                }}
                 placeholder="Select one"
                 // p={'8px 12px'}
               >
@@ -325,7 +331,7 @@ const CreateWidget = () => {
                 </Button>
                 <Button
                   _hover={{ bg: "#C4E8FE" }}
-                  _focus={{bg: "#B4E08E"}}
+                  _focus={{ bg: "#B4E08E" }}
                   borderRadius="8px"
                   p="8px"
                   w="100%"
