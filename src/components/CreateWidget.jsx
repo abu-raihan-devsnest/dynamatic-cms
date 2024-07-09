@@ -270,7 +270,7 @@ const CreateWidget = () => {
                 h="36px"
                 _focusVisible={{
                   outline: "none",
-                }}
+                }} 
                 placeholder="Select one"
               >
                 <option value="option1">Option 1</option>
@@ -329,6 +329,8 @@ const CreateWidget = () => {
                   Reset
                 </Button>
                 <Button
+                  _hover={{ bg: "#C4E8FE" }}
+                  _focus={{bg: "#B4E08E"}}
                   borderRadius="8px"
                   p="8px"
                   w="100%"

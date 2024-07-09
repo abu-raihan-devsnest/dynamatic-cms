@@ -93,7 +93,9 @@ const HeroSection = () => {
                 >
                   Reset
                 </Button>
-                <Button
+                              <Button
+                                  _hover={{ bg: "#06a2e4" }}
+                                  _focus={{ bg: "#069ad9" }}
                   borderRadius="8px"
                   p="8px"
                   w="100%"
