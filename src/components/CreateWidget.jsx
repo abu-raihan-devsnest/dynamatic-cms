@@ -8,7 +8,7 @@ import {
   Select,
   Switch,
   Img,
-  FormControl
+  FormControl,
 } from "@chakra-ui/react";
 import HeaderTitle from "./HeaderTitle";
 import { FormLabel } from "@chakra-ui/react";
@@ -21,9 +21,6 @@ import dndIcon from "../assets/icons/DndIcon.svg";
 import editIcon from "../assets/icons/editIcon.svg";
 import deleteIcon from "../assets/icons/deleteIcon.svg";
 
-
-
-
 const CreateWidget = () => {
   // const [tags, setTags] = useState([]);
   const [widgetList, setWidgetList] = useState([]);
@@ -32,7 +29,6 @@ const CreateWidget = () => {
   const [widgetDescription, setWidgetDescription] = useState("");
   const [badgeText, setBadgeText] = useState("");
   const [selectType, setSelectType] = useState("");
-
 
   const handleCreateWidget = (e) => {
     e.preventDefault();
@@ -57,7 +53,6 @@ const CreateWidget = () => {
     reorderedList.splice(result.destination.index, 0, movedItem);
     setWidgetList(reorderedList);
   };
-
 
   return (
     <BodyBG>
@@ -97,9 +92,7 @@ const CreateWidget = () => {
                             alignItems={"center"}
                             gap={"8px"}
                           >
-                            <Img
-                              src={dndIcon}
-                            />
+                            <Img src={dndIcon} />
                             <Box>
                               <Text
                                 fontFamily={'"Inter", sans-serif'}
@@ -188,6 +181,7 @@ const CreateWidget = () => {
                 type="text"
                 variant="unstyled"
                 placeholder="write here"
+                padding={"8px "}
               />
               <FormLabel mt="8px" fontSize="13px" fontWeight="550">
                 Widget description
@@ -272,6 +266,7 @@ const CreateWidget = () => {
                   outline: "none",
                 }} 
                 placeholder="Select one"
+                // p={'8px 12px'}
               >
                 <option value="option1">Option 1</option>
                 <option value="option2">Option 2</option>
@@ -342,7 +337,7 @@ const CreateWidget = () => {
                   Save widget
                 </Button>
               </HStack>
-              </FormControl>
+            </FormControl>
           </Box>
           <Button
             mt="10px"
