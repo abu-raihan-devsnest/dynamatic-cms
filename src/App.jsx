@@ -4,7 +4,7 @@ import CreateCategory from "./components/CreateCategory";
 function App() {
   return (
     <>
-      <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+      <Box>
         <CreateCategory />
       </Box>
     </>

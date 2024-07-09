@@ -42,9 +42,9 @@ const CreateCategory = () => {
 
   return (
     <BodyBG>
-      <Box>
+      <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+        <Box width={{ base: "100%", md: "700px" }}>
         <HeaderTitle titleText="Create Category" />
-        <Box minW={"700px"} maxW={"700px"} sm="100%">
           <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="droppable-boxes">
               {(provided) => (
