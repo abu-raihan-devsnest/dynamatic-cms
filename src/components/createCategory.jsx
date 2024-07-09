@@ -44,7 +44,7 @@ const CreateCategory = () => {
     <BodyBG>
       <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
         <Box width={{ base: "100%", md: "700px" }}>
-        <HeaderTitle titleText="Create Category" />
+          <HeaderTitle titleText="Create Category" />
           <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="droppable-boxes">
               {(provided) => (
@@ -157,6 +157,7 @@ const CreateCategory = () => {
                   Select type
                 </FormLabel>
                 <Select
+                  required
                   cursor={"pointer"}
                   _focusVisible={{
                     outline: "none",
@@ -195,6 +196,7 @@ const CreateCategory = () => {
                   name="categoryTitle"
                   value={categoryTitle}
                   onChange={(e) => setCategoryTitle(e.target.value)}
+                  required
                 />
               </Box>
 

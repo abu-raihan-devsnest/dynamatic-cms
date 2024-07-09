@@ -85,6 +85,7 @@ const CategoriesTags = ({ tags, setTags }) => {
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           variant="unstyled"
+          required
         />
       </Box>
     </Box>
