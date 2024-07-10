@@ -9,7 +9,6 @@ import {
   Switch,
   Img,
   FormControl,
-  Image,
 } from "@chakra-ui/react";
 import HeaderTitle from "./HeaderTitle";
 import { FormLabel } from "@chakra-ui/react";
@@ -22,7 +21,6 @@ import editIcon from "../assets/icons/editIcon.svg";
 import deleteIcon from "../assets/icons/deleteIcon.svg";
 import recomandationImg from "../assets/images/recomandationImage.png";
 import InputFile from "./InputFile";
-import { CloseIcon } from "@chakra-ui/icons";
 
 const CreateWidget = () => {
   // const [tags, setTags] = useState([]);

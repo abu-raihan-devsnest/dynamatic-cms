@@ -58,12 +58,13 @@ const CreateCategory = () => {
     const editedItem = categoryList.filter(
       (categoryEdit, idx) => categoryEdit.id === id
     );
+
     if (showEditModal) {
       setShowEditModal(false);
     } else {
       setShowEditModal(true);
     }
-    // return editedItem;
+    return editedItem;
   };
 
   const onDragEnd = (result) => {
