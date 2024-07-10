@@ -57,7 +57,7 @@ const BannerSection = () => {
             borderRadius={"12px"}
             padding={"16px"}
           >
-            <InputFile uploadingText={"Upload asset rumi"} />
+            <InputFile uploadingText={"Upload asset"} />
             <Box mt={"16px"}>
               <DragDropContext onDragEnd={onDragEnd}>
                 <Droppable droppableId="droppable-boxes">
