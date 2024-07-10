@@ -9,18 +9,20 @@ import {
   Switch,
   Img,
   FormControl,
+  Image,
 } from "@chakra-ui/react";
 import HeaderTitle from "./HeaderTitle";
 import { FormLabel } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
 import BodyBG from "./BodyBG";
-import InputFile from "./InputFile";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useState } from "react";
 import dndIcon from "../assets/icons/DndIcon.svg";
 import editIcon from "../assets/icons/editIcon.svg";
 import deleteIcon from "../assets/icons/deleteIcon.svg";
 import recomandationImg from "../assets/images/recomandationImage.png";
+import InputFile from "./InputFile";
+import { CloseIcon } from "@chakra-ui/icons";
 
 const CreateWidget = () => {
   // const [tags, setTags] = useState([]);
@@ -47,7 +49,10 @@ const CreateWidget = () => {
     setWidgetTitle("");
   };
 
-  console.log(widgetList);
+  const handleRemoveWidget = (idx) => {
+    console.log(idx);
+    setWidgetList((prevWidget) => prevWidget.filter((_, i) => i !== idx));
+  };
 
   const onDragEnd = (result) => {
     if (!result.destination) return;
@@ -136,7 +141,7 @@ const CreateWidget = () => {
                             gap={"12px"}
                           >
                             <Img
-                              src={editIcon}
+                              src={deleteIcon}
                               bg={"#FFE8ED"}
                               borderRadius={"4px"}
                               padding={"5px"}
@@ -144,9 +149,10 @@ const CreateWidget = () => {
                               width={"30px"}
                               _hover={{ bg: "#f8d6dd" }}
                               cursor={"pointer"}
+                              onClick={() => handleRemoveWidget(idx)}
                             />
                             <Img
-                              src={deleteIcon}
+                              src={editIcon}
                               bg={"#D0EEFF"}
                               borderRadius={"4px"}
                               padding={"5px"}
@@ -316,7 +322,8 @@ const CreateWidget = () => {
                 placeholder="write here"
                 resize="none"
               />
-              <InputFile uploadingText="Upload asset"></InputFile>
+              <InputFile uploadingText="Upload asset" />
+
               <HStack mt="8px" spacing="12px" justify="space-between">
                 <Button
                   borderRadius="8px"

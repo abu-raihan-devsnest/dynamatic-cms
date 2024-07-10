@@ -1,11 +1,20 @@
 import BodyBG from "./BodyBG";
-import { Box, Button, Grid, Img, SimpleGrid, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Grid,
+  Image,
+  Img,
+  SimpleGrid,
+  Text,
+} from "@chakra-ui/react";
 import InputFile from "./InputFile";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import bannerImg from "../assets/images/bannerSectionImg.png";
 import dndIcon from "../assets/icons/DndIcon.svg";
 import { useState } from "react";
 import HeaderTitle from "./HeaderTitle";
+import { CloseIcon } from "@chakra-ui/icons";
 const BannerSection = () => {
   const bannerImagesData = [
     {
@@ -48,7 +57,7 @@ const BannerSection = () => {
             borderRadius={"12px"}
             padding={"16px"}
           >
-            <InputFile uploadingText={"Upload asset"} />
+            <InputFile uploadingText={"Upload asset rumi"} />
             <Box mt={"16px"}>
               <DragDropContext onDragEnd={onDragEnd}>
                 <Droppable droppableId="droppable-boxes">

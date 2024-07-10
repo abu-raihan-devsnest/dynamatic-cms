@@ -31,6 +31,11 @@ const CreateCategory = () => {
     setTags([]);
   };
 
+  const handleRemoveCategory = (idx) => {
+    console.log(idx);
+    setCategoryList((prevCategory) => prevCategory.filter((_, i) => i !== idx));
+  };
+
   const onDragEnd = (result) => {
     if (!result.destination) return;
     const reorderedList = Array.from(categoryList);
@@ -105,7 +110,7 @@ const CreateCategory = () => {
                             gap={"12px"}
                           >
                             <Img
-                              src={editIcon}
+                              src={deleteIcon}
                               bg={"#FFE8ED"}
                               borderRadius={"4px"}
                               padding={"5px"}
@@ -113,9 +118,10 @@ const CreateCategory = () => {
                               width={"30px"}
                               _hover={{ bg: "#f8d6dd" }}
                               cursor={"pointer"}
+                              onClick={() => handleRemoveCategory(idx)}
                             />
                             <Img
-                              src={deleteIcon}
+                              src={editIcon}
                               bg={"#D0EEFF"}
                               borderRadius={"4px"}
                               padding={"5px"}
