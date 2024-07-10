@@ -96,7 +96,11 @@ const CreateWidget = () => {
                             gap={"8px"}
                           >
                             <Img src={dndIcon} />
-                            <Box display={'flex'} gap={'6px'} alignItems={'center'}>
+                            <Box
+                              display={"flex"}
+                              gap={"6px"}
+                              alignItems={"center"}
+                            >
                               <Img
                                 src={recomandationImg}
                                 width={"40px"}
@@ -266,7 +270,6 @@ const CreateWidget = () => {
                 bgColor="#F8F8F8"
                 border="1px"
                 borderColor="#EEEEEE"
-                w="668px"
                 h="36px"
                 _focusVisible={{
                   outline: "none",
@@ -285,7 +288,6 @@ const CreateWidget = () => {
                 bgColor="#F8F8F8"
                 border="1px"
                 borderColor="#EEEEEE"
-                h="36px"
                 _focusVisible={{
                   outline: "none",
                 }}
@@ -331,7 +333,7 @@ const CreateWidget = () => {
                 </Button>
                 <Button
                   _hover={{ bg: "#C4E8FE" }}
-                  _focus={{bg: "#D0DEFF"}}
+                  _focus={{ bg: "#D0DEFF" }}
                   borderRadius="8px"
                   p="8px"
                   w="100%"
@@ -347,7 +349,7 @@ const CreateWidget = () => {
           </Box>
           <Button
             _hover={{ bg: "#0084EF" }}
-            _focus={{bg: "#0086FF"}}
+            _focus={{ bg: "#0086FF" }}
             mt="10px"
             bgColor="#00B2FF"
             w="100%"
